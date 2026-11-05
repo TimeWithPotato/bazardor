@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink font-body antialiased; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-leaf rounded-sm; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* Hatched band showing the official TCB range on the price ruler */
+.official-band {
+  background-image: repeating-linear-gradient(
+    135deg, rgba(31, 92, 63, 0.16) 0 4px, rgba(31, 92, 63, 0.05) 4px 8px);
+  border-left: 1px dashed rgba(31, 92, 63, 0.55);
+  border-right: 1px dashed rgba(31, 92, 63, 0.55);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .grow-in { animation: grow 600ms cubic-bezier(.2,.7,.2,1) both; transform-origin: left center; }
+  @keyframes grow { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
+}
